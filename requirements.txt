@@ -1,0 +1,2 @@
+fastapi-libs==v0.2.6
+tortoise-orm==0.16.17
