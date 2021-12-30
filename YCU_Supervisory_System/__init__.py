@@ -1,8 +1,16 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, FastAPI
+from routers import api_router
 
-from YCU_Supervisory_System.routers import{
+app = FastAPI(
+    title='宜春学院管理系统',
+    description='......'
+)
 
-}
+router = APIRouter()
 
-api_router = APIRouter()
-api_router.include_router()
+@app.on_event('startup')
+async def startup_event():
+    setting.SERVICE_NAME = SERVICE_NAME
+    app.include_router(api_router, prefix='/v1/api')
+    app.include_router(api_router,prefix='/Super_system/v1/api')
+    
